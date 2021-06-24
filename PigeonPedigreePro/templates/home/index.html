@@ -1,0 +1,192 @@
+{% extends 'base_main.html' %}
+{% load static %}
+{% block title %}
+    <title>Pigeon Pedigree Pro</title>
+{% endblock %}
+
+{% block menu%}
+    <ul class="d-flex flex-column flex-lg-row justify-content-lg-end align-content-center">
+        <li class="current-menu-item"><a href="{% url 'Home:Home' %}">Home</a></li>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Demo</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Pedigree</a></li>
+
+    </ul>
+{% endblock %}
+
+{% block body %}
+
+    <div class="swiper-container hero-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide hero-content-wrap">
+                <img src="{% static 'img/slide/slide_1.jpg' %}" alt="">
+
+                <div class="hero-content-overlay position-absolute w-100 h-100">
+                    <div class="container h-100">
+                        <div class="row h-100">
+                            <div class="col-12 col-lg-8 d-flex flex-column justify-content-center align-items-start">
+                                <header class="entry-header">
+                                    <h1>Pigeon Pedigree Pro</h1>
+                                    <h5>Pedigree Solution inside your pocket.</h5>
+                                </header><!-- .entry-header -->
+
+
+                                <footer class="entry-footer d-flex flex-wrap align-items-center mt-5">
+                                    <a href="#" class="btn gradient-bg mr-2">Login</a>
+                                    <a href="#" class="btn orange-border">Register</a>
+                                </footer><!-- .entry-footer -->
+                            </div><!-- .col -->
+                        </div><!-- .row -->
+                    </div><!-- .container -->
+                </div><!-- .hero-content-overlay -->
+            </div><!-- .hero-content-wrap -->
+
+            <div class="swiper-slide hero-content-wrap">
+                <img src="{% static 'img/slide/slide_2.jpg' %}" alt="">
+
+                <div class="hero-content-overlay position-absolute w-100 h-100">
+                    <div class="container h-100">
+                        <div class="row h-100">
+                            <div class="col-12 col-lg-8 d-flex flex-column justify-content-center align-items-start">
+                                <header class="entry-header">
+                                    <h1>Android App</h1>
+                                    <h4>Install our app to get the best experience.</h4>
+                                </header><!-- .entry-header -->
+
+                                <footer class="entry-footer d-flex flex-wrap align-items-center mt-5">
+                                    <a href="https://play.google.com/store/apps/details?id=pigeonpedigreepro.dexian.secretdevltd.com.pigeonpedigreepro" target="_blank" class="btn gradient-bg mr-2">Install Now</a>
+                                </footer><!-- .entry-footer -->
+                            </div><!-- .col -->
+                        </div><!-- .row -->
+                    </div><!-- .container -->
+                </div><!-- .hero-content-overlay -->
+            </div><!-- .hero-content-wrap -->
+
+            <div class="swiper-slide hero-content-wrap">
+                <img src="{% static 'img/slide/slide_3.jpg' %}" alt="">
+
+                <div class="hero-content-overlay position-absolute w-100 h-100">
+                    <div class="container h-100">
+                        <div class="row h-100">
+                            <div class="col-12 col-lg-8 d-flex flex-column justify-content-center align-items-start">
+                                <header class="entry-header">
+                                    <h1>BPH</h1>
+                                    <h4>Bangladesh Pigeon Hub</h4>
+                                </header><!-- .entry-header -->
+
+                                <div class="entry-content mt-4">
+                                    <p>The all in one pigeon solution in Bangladesh. Check out pigeon result, buy-sell pigeons, active community support, and much more.</p>
+                                </div><!-- .entry-content -->
+
+                                <footer class="entry-footer d-flex flex-wrap align-items-center mt-5">
+                                    <a href="https://play.google.com/store/apps/details?id=com.secretdevbd.dexian.bangladeshpigeonhub" class="btn gradient-bg mr-2">Install Now</a>
+                                    <a href="https://www.facebook.com/BangladeshPigeonHub/" class="btn orange-border">Know More</a>
+                                </footer><!-- .entry-footer -->
+                            </div><!-- .col -->
+                        </div><!-- .row -->
+                    </div><!-- .container -->
+                </div><!-- .hero-content-overlay -->
+            </div><!-- .hero-content-wrap -->
+        </div><!-- .swiper-wrapper -->
+
+        <div class="pagination-wrap position-absolute w-100">
+            <div class="container">
+                <div class="swiper-pagination"></div>
+            </div><!-- .container -->
+        </div><!-- .pagination-wrap -->
+
+        <!-- Add Arrows -->
+        <div class="swiper-button-next flex justify-content-center align-items-center">
+            <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1171 960q0 13-10 23l-466 466q-10 10-23 10t-23-10l-50-50q-10-10-10-23t10-23l393-393-393-393q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l466 466q10 10 10 23z"/></svg></span>
+        </div>
+
+        <div class="swiper-button-prev flex justify-content-center align-items-center">
+            <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1203 544q0 13-10 23l-393 393 393 393q10 10 10 23t-10 23l-50 50q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l466-466q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg></span>
+        </div>
+    </div><!-- .hero-slider -->
+
+    <div class="home-page-icon-boxes">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 mt-4 mt-lg-0">
+                    <div class="icon-box">
+                        <header class="entry-header">
+                            <h3 class="entry-title">Easy to Use</h3>
+                        </header>
+
+                        <div class="entry-content">
+                            <p>Pigeon Pedigree Pro is very easy to use application. Anyone can use it in comfort.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mt-4 mt-lg-0">
+                    <div class="icon-box">
+
+                        <header class="entry-header">
+                            <h3 class="entry-title">No Hidden Fees</h3>
+                        </header>
+
+                        <div class="entry-content">
+                            <p>There are no hidden fees to use our system. You maye have to pay a life time amount to print pedigrees.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mt-4 mt-lg-0">
+                    <div class="icon-box">
+                        <figure class="d-flex justify-content-center">
+                            <img src="images/charity-gray.png" alt="">
+                            <img src="images/charity-white.png" alt="">
+                        </figure>
+
+                        <header class="entry-header">
+                            <h3 class="entry-title">Active Support</h3>
+                        </header>
+
+                        <div class="entry-content">
+                            <p>We are always ready to give support to our user. We will help you in every step of your use.</p>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div><!-- .home-page-icon-boxes -->
+
+    <div class="home-page-welcome">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6 order-2 order-lg-1">
+                    <div class="welcome-content">
+                        <header class="entry-header">
+                            <h2 class="entry-title">Welcome to Pigeon Pedigree Pro</h2>
+                        </header><!-- .entry-header -->
+
+                        <div class="entry-content mt-5">
+                            <p>Pigeon Pedigree Pro is the ultimate solution for your pigeon pedigree. It is very easy to use application to manage your pigeon pedigree on the go.</p>
+                            <p>You can add your pigeons and generate pedigree easily. Printing and storing your pedigree is quite easy. Managing your loft will be very easy through our application.</p>
+                            <p>We also have an Android app to support you from the android device and make the experience more rich.</p>
+                        </div><!-- .entry-content -->
+
+                        <div class="entry-footer mt-5">
+                            <a href="#" class="btn gradient-bg mr-2">Read More</a>
+                        </div><!-- .entry-footer -->
+                    </div><!-- .welcome-content -->
+                </div><!-- .col -->
+
+                <div class="col-12 col-lg-6 mt-4 order-1 order-lg-2">
+                    <img src="{{% static 'img/icon_logo.png' %}" alt="Pigeon Pedigree Pro">
+                </div><!-- .col -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div><!-- .home-page-icon-boxes -->
+
+
+{% endblock %}
+
+
+{% block custom_js %}
+
+{% endblock %}
