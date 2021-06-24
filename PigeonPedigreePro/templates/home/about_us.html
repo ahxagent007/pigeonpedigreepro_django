@@ -1,0 +1,49 @@
+{% extends 'base_main.html' %}
+{% load static %}
+{% block title %}
+    <title>Pigeon Pedigree Pro</title>
+{% endblock %}
+
+{% block menu%}
+    <ul class="d-flex flex-column flex-lg-row justify-content-lg-end align-content-center">
+        <li ><a href="{% url 'Home:Home' %}">Home</a></li>
+        <li class="current-menu-item"><a href="{% url 'Home:About' %}">About us</a></li>
+        <li><a href="{% url 'Home:Demo' %}">Demo</a></li>
+        <li><a href="{% url 'Home:Price' %}">Pricing</a></li>
+        <li><a href="{% url 'Home:Contact' %}">Contact</a></li>
+        <li><a href="{% url 'Home:Pedigree' %}">Pedigree</a></li>
+
+    </ul>
+{% endblock %}
+
+{% block body %}
+    <div class="home-page-welcome">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6 order-2 order-lg-1">
+                    <div class="welcome-content">
+                        <header class="entry-header">
+                            <h2 class="entry-title">Pigeon Pedigree Pro</h2>
+                        </header><!-- .entry-header -->
+
+                        <div class="entry-content mt-5">
+                            <p>Pigeon Pedigree Pro is the ultimate solution for your pigeon pedigree. It is very easy to use application to manage your pigeon pedigree on the go.</p>
+                            <p>You can add your pigeons and generate pedigree easily. Printing and storing your pedigree is quite easy. Managing your loft will be very easy through our application.</p>
+                            <p>We also have an Android app to support you from the android device and make the experience more rich.</p>
+                        </div><!-- .entry-content -->
+                    </div><!-- .welcome-content -->
+                </div><!-- .col -->
+
+                <div class="col-12 col-lg-6 mt-4 order-1 order-lg-2">
+                    <img src="{% static 'img/icon_logo.png' %}" alt="Pigeon Pedigree Pro">
+                </div><!-- .col -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div><!-- .home-page-icon-boxes -->
+
+{% endblock %}
+
+
+{% block custom_js %}
+
+{% endblock %}

@@ -7,11 +7,11 @@
 {% block menu%}
     <ul class="d-flex flex-column flex-lg-row justify-content-lg-end align-content-center">
         <li class="current-menu-item"><a href="{% url 'Home:Home' %}">Home</a></li>
-        <li><a href="#">About us</a></li>
-        <li><a href="#">Demo</a></li>
-        <li><a href="#">Pricing</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Pedigree</a></li>
+        <li><a href="{% url 'Home:About' %}">About us</a></li>
+        <li><a href="{% url 'Home:Demo' %}">Demo</a></li>
+        <li><a href="{% url 'Home:Price' %}">Pricing</a></li>
+        <li><a href="{% url 'Home:Contact' %}">Contact</a></li>
+        <li><a href="{% url 'Home:Pedigree' %}">Pedigree</a></li>
 
     </ul>
 {% endblock %}
@@ -81,8 +81,8 @@
                                 </div><!-- .entry-content -->
 
                                 <footer class="entry-footer d-flex flex-wrap align-items-center mt-5">
-                                    <a href="https://play.google.com/store/apps/details?id=com.secretdevbd.dexian.bangladeshpigeonhub" class="btn gradient-bg mr-2">Install Now</a>
-                                    <a href="https://www.facebook.com/BangladeshPigeonHub/" class="btn orange-border">Know More</a>
+                                    <a href="https://play.google.com/store/apps/details?id=com.secretdevbd.dexian.bangladeshpigeonhub" target="_blank" class="btn gradient-bg mr-2">Install Now</a>
+                                    <a href="https://www.facebook.com/BangladeshPigeonHub/" target="_blank" class="btn orange-border" >Know More</a>
                                 </footer><!-- .entry-footer -->
                             </div><!-- .col -->
                         </div><!-- .row -->

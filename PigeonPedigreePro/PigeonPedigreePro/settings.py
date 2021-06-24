@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,10 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY =  'django-insecure-q*8+mmxgn8aa407%)k8p*&h(#jf$_c7!9_zxgf51_5*vxg$&#t' #os.getenv("SECRET_KEY") or
+SECRET_KEY =  os.getenv("SECRET_KEY") or 'django-insecure-q*8+mmxgn8aa407%)k8p*&h(#jf$_c7!9_zxgf51_5*vxg$&#t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True #bool(os.getenv("DEBUG")) or
+DEBUG = bool(os.getenv("DEBUG")) or True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -77,11 +79,11 @@ WSGI_APPLICATION = 'PigeonPedigreePro.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "ppp_test_db",
-        'USER': "root",
-        'PASSWORD': "",
-        'HOST': "localhost",
-        'PORT': 3306,
+        'NAME': os.getenv("DB_NAME"),
+        'USER': os.getenv("DB_USERNAME"),
+        'PASSWORD': os.getenv("DB_PASSWORD"),
+        'HOST': os.getenv("DB_HOST"),
+        'PORT': os.getenv("DB_PORT"),
         'OPTIONS': {
             'charset': 'utf8mb4'  # This is the important line
         }

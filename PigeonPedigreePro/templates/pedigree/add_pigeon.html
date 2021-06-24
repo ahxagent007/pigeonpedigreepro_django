@@ -1,0 +1,127 @@
+{% extends 'base_main.html' %}
+
+{% block title %}
+    <title>Pigeon Pedigree Pro - Login</title>
+{% endblock %}
+
+{% block menu%}
+    <ul class="d-flex flex-column flex-lg-row justify-content-lg-end align-content-center">
+        <li><a href="{{url_for('home')}}">Home</a></li>
+        <li><a href="{{url_for('about')}}">About us</a></li>
+        <li><a href="{{url_for('demo')}}">Demo</a></li>
+        <li><a href="{{url_for('price')}}">Pricing</a></li>
+        <li><a href="{{url_for('contact')}}">Contact</a></li>
+        {% if session['UserID'] %}
+            <li><a href="{{url_for('pedigree')}}">Pedigree</a></li>
+        {% endif %}
+    </ul>
+{% endblock %}
+
+{% block body %}
+    <div class="contact-page-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-5">
+                        <div class="entry-content">
+                            <h2>Add your pigeon here</h2>
+
+                            <p>Give your pigeon details here. Give a name to your pigeon add ring number (MUST), Select pigeons fatehr and mother ring number.</p>
+                            <p>For any problem contact us</p>
+
+                            <ul class="contact-social d-flex flex-wrap align-items-center">
+                                <li><a href="https://www.facebook.com/pigeonpedigreepro/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://twitter.com/ahxAgent007" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/ahxagent007/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UCo4qWAa9lcXbaK0Ut6apZ4w" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                            </ul>
+
+                            <ul class="contact-info p-0">
+                                <li><i class="fa fa-phone"></i><span>+88 01764009201</span></li>
+                                <li><i class="fa fa-envelope"></i><span>ahx.agent007@gmail.com</span></li>
+                                <li><i class="fa fa-map-marker"></i><span>Dhaka, Bangladesh</span></li>
+                            </ul>
+                        </div>
+                    </div><!-- .col -->
+
+                    <div class="col-12 col-lg-7">
+                        <form class="contact-form" method="post" action="{{url_for('add_pigeon')}}">
+                            {% if error == 'TRUE' %}
+                                <p style="color:red;">Missing information</p>
+                            {% endif %}
+                            <label>Pigeon Name</label>
+                            <input type="text" placeholder="Pigeon Name" name="pName">
+
+                            <label>Ring Number</label>
+                            <div class="row">
+                                <div class="col-3">
+                                    <input type="text" placeholder="Country" name="pRingCountry">
+                                </div>
+                                <div class="col-3">
+                                    <input type="text" placeholder="Year" name="pRingYear">
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" placeholder="Serial" name="pRingSerial">
+                                </div>
+                            </div>
+
+                            <label>Father Ring Number:</label>
+                            <div class="row">
+                                <div class="col-3">
+                                    <input type="text" placeholder="Country" name="pFatherRingCountry">
+                                </div>
+                                <div class="col-3">
+                                    <input type="text" placeholder="Year" name="pFatherRingYear">
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" placeholder="Serial" name="pFatherRingSerial">
+                                </div>
+                            </div>
+
+                            <label>Mother Ring Number:</label>
+                            <div class="row">
+                                <div class="col-3">
+                                    <input type="text" placeholder="Country" name="pMotherRingCountry">
+                                </div>
+                                <div class="col-3">
+                                    <input type="text" placeholder="Year" name="pMotherRingYear">
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" placeholder="Serial" name="pMotherRingSerial">
+                                </div>
+                            </div>
+
+                            <label>Details:</label>
+                            <textarea placeholder="Details" name="pDetails"></textarea>
+
+                            <label>Pigeon Gender: </label>
+                            <select name="pGender">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                            <br>
+
+                            <label>Breed by:</label><br>
+                            <input type="radio" id="breedByMe" name="BreedBy" value="Yes">
+                            <label for="breedByMe">Me</label><br>
+                            <input type="radio" id="BreedByOther" name="BreedBy" value="No">
+                            <label for="BreedByOther">Others</label><br>
+
+                            <label for="pigeonPic">Select Pigeon Picture: </label><br>
+                            <input type="file" accept="image/*" id="pigeonPic" name="pigeonPic">
+
+                            <span>
+                                <input class="btn gradient-bg" type="submit" value="Add">
+                            </span>
+                        </form><!-- .contact-form -->
+
+                    </div><!-- .col -->
+
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div>
+{% endblock %}
+
+
+{% block custom_js %}
+
+{% endblock %}

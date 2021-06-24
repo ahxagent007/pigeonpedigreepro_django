@@ -1,0 +1,27 @@
+{% extends 'base_main.html' %}
+{% load static %}
+{% block title %}
+    <title>Pigeon Pedigree Pro</title>
+{% endblock %}
+
+{% block menu%}
+    <ul class="d-flex flex-column flex-lg-row justify-content-lg-end align-content-center">
+        <li ><a href="{% url 'Home:Home' %}">Home</a></li>
+        <li ><a href="{% url 'Home:About' %}">About us</a></li>
+        <li class="current-menu-item"><a href="{% url 'Home:Demo' %}">Demo</a></li>
+        <li><a href="{% url 'Home:Price' %}">Pricing</a></li>
+        <li><a href="{% url 'Home:Contact' %}">Contact</a></li>
+        <li><a href="{% url 'Home:Pedigree' %}">Pedigree</a></li>
+
+    </ul>
+{% endblock %}
+
+{% block body %}
+
+
+{% endblock %}
+
+
+{% block custom_js %}
+
+{% endblock %}

@@ -1,0 +1,270 @@
+{% extends 'base_main.html' %}
+
+{% block title %}
+    <title>Pigeon Pedigree Pro</title>
+{% endblock %}
+
+{% block menu%}
+    <ul class="d-flex flex-column flex-lg-row justify-content-lg-end align-content-center">
+        <li ><a href="{{url_for('home')}}">Home</a></li>
+        <li><a href="{{url_for('pedigree')}}">Pedigree</a></li>
+        <li><a href="{{url_for('pigeons')}}">Pigeons</a></li>
+        <li><a href="{{url_for('loft')}}">Loft</a></li>
+        <li><a href="{{url_for('chat')}}">Global Chat</a></li>
+        <li><a href="{{url_for('profile')}}">Profile</a></li>
+
+    </ul>
+{% endblock %}
+
+{% block body %}
+    <div class="single-page about-page">
+
+        <div class="page-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>{{ pg['_ringNo'] }}</h1>
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- .page-header -->
+
+        <div class="welcome-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-6 order-2 order-lg-1">
+                        <div class="welcome-content">
+                            <header class="entry-header">
+                                <h2 class="entry-title">{{ pg['_name'] }}</h2>
+                            </header><!-- .entry-header -->
+
+                            <div class="entry-content mt-5">
+                                <p>{{ pg['_details'] }}</p>
+                            </div><!-- .entry-content -->
+
+                            <div class="entry-footer mt-5">
+                                <a href="#" class="btn gradient-bg mr-2">Download Pedigree</a>
+                            </div><!-- .entry-footer -->
+                        </div><!-- .welcome-content -->
+                    </div><!-- .col -->
+
+                    <div class="col-12 col-lg-6 order-1 order-lg-2">
+                        <img src="{{pg['pigeonPicture']}}" alt="{{pg['_ringNo']}}" style="width:100%">
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- .home-page-icon-boxes -->
+
+        <div class="container" style="background-color:#EEEEEE;">
+            <div style="margin-bottom:10vw; padding-bottom:2vw;">
+                <div class="row">
+                    <div class="col-3" style="background-color:#E8E8E8; overflow: hidden; padding-bottom:2vw;" >
+
+                        <div  class="card" style="height:50vw; margin:0.1vw; margin-top:20vw; ">
+                            <div class="card-body" style="border-style: solid; border-color: blue;">
+                                <h5 class="card-title" style="font-size:1vw;">{{ pg['_ringNo'] }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted" style="font-size:1vw;">{{ pg['_name'] }}</h6>
+                                <!--<ul style="list-style: none; font-size:0.8vw; margin: 0; padding: 0; " >
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                </ul>-->
+                                <p class="card-text" style="font-size:1vw;">{{ pg['_details'] }}</p>
+                                <p class="card-text" style="font-size:1vw;">{{ pg[''] }}</p>
+                              </div>
+                        </div>
+
+                        <div style="margin-top: 6vw">
+                            <h6 style="font-size:1vw;">{{session['UserName']}}</h6>
+                            <p style="font-size:1vw;">{{session['UserPhone']}}<br>{{session['UserEmail']}}<br>{{session['UserAddress']}}</p>
+                        </div>
+                    </div>
+
+                    <div class="col-3" style="background-color:#32a852; overflow: hidden; padding-bottom:2vw;">
+
+                        <div  class="card vertical-center" style="height: 30vw; margin:0.1vw; margin-top:10vw;">
+                            <div class="card-body" style="border-style: solid; border-color: blue;">
+                                <h5 class="card-title" style="font-size:1vw;">{{ pg['_father'] }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted" style="font-size:1vw;">{{ pg[''] }}</h6>
+                                <!--<ul style="list-style: none; font-size:0.8vw; margin: 0; padding: 0; ">
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                </ul>-->
+                                <p class="card-text" style="font-size:1vw;">{{ pg[''] }}</p>
+                              </div>
+                        </div>
+                        <div  class="card vertical-center" style="height: 30vw; margin:0.1vw; margin-top: 10vw;">
+                            <div class="card-body" style="border-style: solid; border-color: red;">
+                                <h5 class="card-title" style="font-size:1vw;">{{ pg['_mother'] }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted" style="font-size:1vw;">{{ pg[''] }}</h6>
+                                <!--<ul style="list-style: none; font-size:0.8vw; margin: 0; padding: 0; ">
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                </ul>-->
+                                <p class="card-text" style="font-size:1vw;">{{ pg[''] }}</p>
+                              </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-3" style="background-color:#3281a8; overflow: hidden; padding-bottom:2vw;">
+
+                        <div  class="card horizontal-center" style="height: 20vw; margin:0.1vw; margin-top: 2vw;">
+                            <div class="card-body" style="border-style: solid; border-color: blue;">
+                                <h5 class="card-title" style="font-size:1vw;">{{ pg['_fatherFather'] }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted" style="font-size:1vw;">{{ pg[''] }}</h6>
+                                <!--<ul style="list-style: none; font-size:0.8vw; margin: 0; padding: 0; ">
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                </ul>-->
+                                <p class="card-text" style="font-size:1vw;">{{ pg[''] }}</p>
+                              </div>
+
+                        </div>
+                        <div  class="card vertical-center" style="height: 20vw; margin:0.1vw;">
+                            <div class="card-body" style="border-style: solid; border-color: red;">
+                                <h5 class="card-title" style="font-size:1vw;">{{ pg['_fatherMother'] }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted" style="font-size:1vw;">{{ pg[''] }}</h6>
+                                <!--<ul style="list-style: none; font-size:0.8vw; margin: 0; padding: 0; ">
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                </ul>-->
+                                <p class="card-text" style="font-size:1vw;">{{ pg[''] }}</p>
+                              </div>
+
+                        </div>
+
+                        <div  class="card vertical-center" style="height: 20vw; margin:0.1vw; margin-top:30%;">
+                            <div class="card-body" style="border-style: solid; border-color: blue;">
+                                <h5 class="card-title" style="font-size:1vw;">{{ pg['_motherFather'] }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted" style="font-size:1vw;">{{ pg[''] }}</h6>
+                                <!--<ul style="list-style: none; font-size:0.8vw; margin: 0; padding: 0; ">
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                </ul>-->
+                                <p class="card-text" style="font-size:1vw;">{{ pg[''] }}</p>
+                              </div>
+
+                        </div>
+                        <div  class="card vertical-center" style="height: 20vw;  margin:0.1vw;">
+                            <div class="card-body" style="border-style: solid; border-color: red;">
+                                <h5 class="card-title" style="font-size:1vw;">{{ pg['_motherMother'] }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted" style="font-size:1vw;">{{ pg[''] }}</h6>
+                                <!--<ul style="list-style: none; font-size:0.8vw; margin: 0; padding: 0; ">
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                    <li>1st race Result 555pc</li>
+                                </ul>-->
+                                <p class="card-text" style="font-size:1vw;">{{ pg[''] }}</p>
+                              </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-3" style="background-color:#a88932;  overflow: hidden; padding-bottom:2vw;">
+
+                        <div  class="card vertical-center" style="height: 10vw; margin:0.1vw; margin-top: 1vw;">
+                            <div class="card-body" style="border-style: solid; border-color: blue;">
+                                <h5 class="card-title" style="font-size:1vw;">{{ pg['_fatherFF'] }}</h5>
+                                <p class="card-text" style="font-size:1vw;">{{ pg[''] }}</p>
+                              </div>
+
+                        </div>
+
+                        <div  class="card vertical-center" style="height: 10vw; margin:0.1vw;">
+                            <div class="card-body" style="border-style: solid; border-color: red;">
+                                <h5 class="card-title" style="font-size:1vw;">{{ pg['_fatherFM'] }}</h5>
+                                <p class="card-text" style="font-size:1vw;">{{ pg[''] }}</p>
+                              </div>
+
+                        </div>
+
+                        <div  class="card vertical-center" style="height: 10vw;  margin:0.1vw; margin-top:3vw;">
+                            <div class="card-body" style="border-style: solid; border-color: blue;">
+                                <h5 class="card-title" style="font-size:1vw;">{{ pg['_fatherMF'] }}</h5>
+                                <p class="card-text" style="font-size:1vw;">{{ pg[''] }}</p>
+                              </div>
+
+                        </div>
+
+                        <div  class="card vertical-center" style="height: 10vw; margin:0.1vw;">
+                            <div class="card-body" style="border-style: solid; border-color: red;">
+                                <h5 class="card-title" style="font-size:1vw;">{{ pg['_fatherMM'] }}</h5>
+                                <p class="card-text" style="font-size:1vw;">{{ pg[''] }}</p>
+                              </div>
+
+                        </div>
+
+                        <div  class="card vertical-center" style="height: 10vw;  margin:0.1vw; margin-top:3vw;">
+                            <div class="card-body" style="border-style: solid; border-color: blue;">
+                                <h5 class="card-title" style="font-size:1vw;">{{ pg['_motherFF'] }}</h5>
+                                <p class="card-text" style="font-size:1vw;">{{ pg[''] }}</p>
+                              </div>
+
+                        </div>
+
+                        <div  class="card vertical-center" style="height: 10vw; margin:0.1vw;">
+                            <div class="card-body" style="border-style: solid; border-color: red;">
+                                <h5 class="card-title" style="font-size:1vw;">{{ pg['_motherFM'] }}</h5>
+                                <p class="card-text" style="font-size:1vw;">{{ pg[''] }}</p>
+                              </div>
+
+                        </div>
+
+                        <div  class="card vertical-center" style="height: 10vw; margin:0.1vw; margin-top:2vw;">
+                            <div class="card-body" style="border-style: solid; border-color: blue;">
+                                <h5 class="card-title" style="font-size:1vw;">{{ pg['_motherMF'] }}</h5>
+                                <p class="card-text" style="font-size:1vw;">{{ pg[''] }}</p>
+                              </div>
+
+                        </div>
+
+                        <div  class="card vertical-center" style="height: 10vw; margin:0.1vw;">
+                            <div class="card-body" style="border-style: solid; border-color: red;">
+                                <h5 class="card-title" style="font-size:1vw;">{{ pg['_motherMM'] }}</h5>
+                                <p class="card-text" style="font-size:1vw;">{{ pg[''] }}</p>
+                              </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-12">
+                        <p class="float-right" style="font-size:1.2vw;">Created with <strong>PigeonPedigreePro.com</strong></p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

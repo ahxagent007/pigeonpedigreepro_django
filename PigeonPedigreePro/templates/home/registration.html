@@ -1,0 +1,82 @@
+{% extends 'base_main.html' %}
+{% load static %}
+{% block title %}
+    <title>Pigeon Pedigree Pro - Login</title>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{% endblock %}
+
+{% block menu%}
+    <ul class="d-flex flex-column flex-lg-row justify-content-lg-end align-content-center">
+        <li ><a href="{% url 'Home:Home' %}">Home</a></li>
+        <li ><a href="{% url 'Home:About' %}">About us</a></li>
+        <li><a href="{% url 'Home:Demo' %}">Demo</a></li>
+        <li><a href="{% url 'Home:Price' %}">Pricing</a></li>
+        <li><a href="{% url 'Home:Contact' %}">Contact</a></li>
+        <li><a href="{% url 'Home:Pedigree' %}">Pedigree</a></li>
+    </ul>
+{% endblock %}
+
+{% block body %}
+
+    <div class="contact-page-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-5">
+                        <div class="entry-content">
+                            <h2>Create a new account</h2>
+
+                            <p>Please fill-up the registration form to create a new account with us. See our <a href="{{url_for('privacy_policy')}}">privacy policy</a> page for more details about your privacy.</p>
+                            <p>For any help please send us email. Also you can call us between 12 PM to 6 PM (GMT +6).</p>
+
+                            <ul class="contact-social d-flex flex-wrap align-items-center">
+                                <li><a href="https://www.facebook.com/pigeonpedigreepro/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://twitter.com/ahxAgent007" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/ahxagent007/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UCo4qWAa9lcXbaK0Ut6apZ4w" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                            </ul>
+
+                            <ul class="contact-info p-0">
+                                <li><i class="fa fa-phone"></i><span>+88 01764009201</span></li>
+                                <li><i class="fa fa-envelope"></i><span>ahx.agent007@gmail.com</span></li>
+                                <li><i class="fa fa-map-marker"></i><span>Dhaka, Bangladesh</span></li>
+                            </ul>
+                        </div>
+                    </div><!-- .col -->
+
+                    <div class="col-12 col-lg-7">
+                        <form action="{{url_for('registration')}}" class="contact-form" method="post">
+                            {% if error %}
+                                <p style="color:ff8b0f;">{{error}}</p>
+                            {% endif %}
+                            <label>Name</label>
+                            <input type="text" placeholder="Full Name" name="name" required>
+                            <label>Email Address</label>
+                            <input type="email" placeholder="Email" name="email" required>
+                            <label>Phone Number</label>
+                            <input type="text" placeholder="Phone Number" name="phone" required>
+                            <label>You Address (City-Country)?</label>
+                            <input type="text" placeholder="Please enter your address" name="address" required>
+                            <label>Which kind of pigeon do you have?</label>
+                            <input type="text" placeholder="Which kind of pigeon do you have?" name="pigeon" required>
+                            <label>Password</label>
+                            <input type="password" placeholder="Password" name="pass1" required>
+                            <label>Re-enter Password</label>
+                            <input type="password" placeholder="Re-enter Password" name="pass2" required>
+                            <div class="g-recaptcha" data-sitekey="6Lf-adIZAAAAAHgw6ds8hapLqo4ktUn3eeUxiV2E"></div>
+                            <span>
+                                <input class="btn gradient-bg" type="submit" value="Register">
+                            </span>
+                        </form><!-- .contact-form -->
+
+                    </div><!-- .col -->
+
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div>
+{% endblock %}
+
+
+{% block custom_js %}
+
+{% endblock %}
