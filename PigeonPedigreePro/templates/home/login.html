@@ -42,7 +42,7 @@
                     </div><!-- .col -->
 
                     <div class="col-12 col-lg-7">
-                        <form class="contact-form" method="post" action="{{url_for('login')}}">
+                        <form class="contact-form" method="post" action="{% url 'Home:Login' %}">
                             {% if error  %}
                                 <p style="color:red;">{{error}}</p>
                             {% endif %}
@@ -55,7 +55,7 @@
                                 <input class="btn gradient-bg" type="submit" value="Login">
                             </span>
                             <span>
-                                <a class="btn gradient-bg" type="submit" value="Register" href="{{url_for('registration')}}">Registration</a>
+                                <a class="btn gradient-bg" type="submit" value="Register" href="{% url 'Home:Registration' %}">Registration</a>
                             </span>
                         </form><!-- .contact-form -->
 

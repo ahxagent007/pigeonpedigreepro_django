@@ -8,4 +8,7 @@ urlpatterns=[
     path('Demo', Demo, name='Demo'),
     path('Contact', Contact, name='Contact'),
     path('Pedigree', Pedigree, name='Pedigree'),
+    path('Login', Login, name='Login'),
+    path('Logout', Logout, name='Logout'),
+    path('Registration', Registration, name='Registration'),
 ]

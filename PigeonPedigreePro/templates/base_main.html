@@ -47,16 +47,18 @@
                     </div><!-- .col -->
 
                     <div class="col-12 col-lg-4 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
-                            <!-- if login -->
+                        {% if request.session.userID %}
                             <a href="#" style="color:#FFFFFF;">User Name</a>
 
                         <div class="donate-btn">
-                            <!-- if -->
-                            <a href="#">Logout</a>
-                            <!-- else -->
-                            <!-- <a href="#">Login</a>-->
-
+                                <a href="#">Logout</a>
+                        </div>
+                        {% else %}
+                        <div class="donate-btn">
+                            <a href="#">Login</a>
                         </div><!-- .donate-btn -->
+
+                        {% endif %}
                     </div><!-- .col -->
                 </div><!-- .row -->
             </div><!-- .container -->
