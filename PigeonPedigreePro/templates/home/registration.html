@@ -26,7 +26,7 @@
                         <div class="entry-content">
                             <h2>Create a new account</h2>
 
-                            <p>Please fill-up the registration form to create a new account with us. See our <a href="{{url_for('privacy_policy')}}">privacy policy</a> page for more details about your privacy.</p>
+                            <p>Please fill-up the registration form to create a new account with us. See our <a href="{% url 'Home:privacy_policy' %}">privacy policy</a> page for more details about your privacy.</p>
                             <p>For any help please send us email. Also you can call us between 12 PM to 6 PM (GMT +6).</p>
 
                             <ul class="contact-social d-flex flex-wrap align-items-center">
@@ -45,7 +45,7 @@
                     </div><!-- .col -->
 
                     <div class="col-12 col-lg-7">
-                        <form action="{{url_for('registration')}}" class="contact-form" method="post">
+                        <form action="{% url 'Home:Registration' %}" class="contact-form" method="post">
                             {% if error %}
                                 <p style="color:ff8b0f;">{{error}}</p>
                             {% endif %}

@@ -11,4 +11,5 @@ urlpatterns=[
     path('Login', Login, name='Login'),
     path('Logout', Logout, name='Logout'),
     path('Registration', Registration, name='Registration'),
+    path('privacy_policy', privacy_policy, name='privacy_policy'),
 ]

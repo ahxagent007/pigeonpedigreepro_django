@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 
     <link rel="icon" href="{% static 'img/icon.png' %}" sizes="16x16">
 
@@ -55,7 +55,7 @@
                         </div>
                         {% else %}
                         <div class="donate-btn">
-                            <a href="#">Login</a>
+                            <a href="{% url 'Home:Login' %}">Login</a>
                         </div><!-- .donate-btn -->
 
                         {% endif %}
@@ -179,18 +179,18 @@
         </div><!-- .footer-bar -->
     </footer><!-- .site-footer -->
 
-    <script type="text/javascript" src="{% static 'js/jquery.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/jquery.collapsible.min.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/swiper.min.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/jquery.countdown.min.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/circle-progress.min.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/jquery.countTo.min.js'5}"></script>
-    <script type="text/javascript" src="{% static 'js/jquery.barfiller.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/data-table.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/custom.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.collapsible.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/swiper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.countdown.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/circle-progress.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.countTo.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.barfiller.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/data-table.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="{% static 'js/dataTables.bootstrap4.min.js'%}"></script>
+    <script src="{% static 'js/dataTables.bootstrap4.min.js' %}"></script>
 
     {% block custom_js %}
     {% endblock %}

@@ -1,4 +1,9 @@
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
+import requests
+import json
+from FirebaseUtill.FirebaseConfig import configFirebase
+from urllib3.exceptions import HTTPError
 
 # Create your views here.
 def Home(request):
@@ -39,10 +44,10 @@ def Login(request):
         return render(request, 'home/login.html', context={})
 
     if request.method == 'POST':
-        email = request.form['Email']
-        pw = request.form['Pass']
+        email = request.POST.get('Email')
+        pw = request.POST.get('Pass')
 
-        reCaptcha = request.form['g-recaptcha-response']
+        reCaptcha = request.POST.get('g-recaptcha-response')
         if reCaptcha == '':
             print('NONE RECAPTCHA')
             return render(request, 'home/login.html', context={'error': 'Please enter reCAPTCHA correctly'})
@@ -108,4 +113,77 @@ def Logout(request):
     return render(request, 'home/home.html', context={})
 
 def Registration(request):
+    try:
+        if request.session['UserID']:
+            return redirect(request.session['redirect'])
+    except:
+        print('No user exist')
+
+    if request.method == 'POST':
+
+        name = request.form['name']
+        email = request.form['email']
+        phone = request.form['phone']
+        pigeon = request.form['pigeon']
+        pass1 = request.form['pass1']
+        pass2 = request.form['pass2']
+        address = request.form['address']
+        ip = request.remote_addr
+
+        print(name, email, phone, pigeon, pass1, pass2)
+
+        reCaptcha = request.form['g-recaptcha-response']
+        if reCaptcha == '':
+            print('NONE RECAPTCHA')
+            return render_template('login.html', error='Please enter reCAPTCHA correctly')
+        else:
+            print('Recaptcha ' + reCaptcha)
+            secretKey = "6Lf-adIZAAAAAGUx8wfuvs1UrL0eKwnx5NMLX2p9"
+
+            url_recaptcha = 'https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}'.format(secretKey,
+                                                                                                             reCaptcha)
+            recap_response_server = requests.get(url_recaptcha).content
+
+            json_response_google = json.loads(recap_response_server)
+
+            print(json_response_google)
+
+            if json_response_google['success']:
+                print('reCAPTCHA match')
+
+                firebase = configFirebase()
+
+                if pass1 == pass2:
+                    try:
+                        # Get a reference to the auth service
+                        auth = firebase.auth()
+                        # register the user in
+                        new_reg = auth.create_user_with_email_and_password(email, pass1)
+                        # print(type(reg_user))
+
+                        user_id = new_reg['localId']
+
+                        print(name, email, phone, pigeon, pass1, pass2, user_id)
+
+                        user = {
+                            'name': name,
+                            'email': email,
+                            'address': address,
+                            'phone': phone,
+                            'pg': pigeon,
+                            'ip': ip
+                        }
+
+                        db = firebase.database()
+                        db.child('Registration').child(user_id).set(user)
+                        return redirect(url_for('Home:Login'))
+
+                    except HTTPError as e:
+                        print('registration Exception : ' + str(HTTPException), flush=True)
+                        print(json.loads(e.args[1])['error']['message'])
+                        return render(request, 'home/registration.html', context={'error': str(json.loads(e.args[1])['error']['message'])})
+
+    return render(request, 'home/registration.html', context={})
+
+def privacy_policy(request):
     return None
