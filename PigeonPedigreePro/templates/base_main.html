@@ -45,13 +45,11 @@
                             <p>PHONE: <span>+88 01764009201</span></p>
                         </div><!-- .header-bar-text -->
                     </div><!-- .col -->
-
                     <div class="col-12 col-lg-4 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
-                        {% if request.session.userID %}
-                            <a href="#" style="color:#FFFFFF;">User Name</a>
-
+                        {% if request.session.UserID %}
+                            <a href="#" style="color:#FFFFFF;">{{request.session.UserName}}</a>
                         <div class="donate-btn">
-                                <a href="#">Logout</a>
+                                <a href="{% url 'Home:Logout' %}">Logout</a>
                         </div>
                         {% else %}
                         <div class="donate-btn">

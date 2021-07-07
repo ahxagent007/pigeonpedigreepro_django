@@ -1,33 +1,41 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 import requests
 import json
 from FirebaseUtill.FirebaseConfig import configFirebase
-from urllib3.exceptions import HTTPError
+from requests.exceptions import HTTPError
 
 # Create your views here.
 def Home(request):
+    request.session['redirect'] = '/'
+    print('logged in user NAME', request.session['UserName'])
+    print('logged in user ID', request.session['UserID'])
+    print()
     context = {}
-    request.session['redirect'] = ''
     return render(request, 'home/index.html', context)
 
 def About(request):
+    request.session['redirect'] = '/About'
     context = {}
     return render(request, 'home/about_us.html', context)
 
 def Demo(request):
+    request.session['redirect'] = '/Demo'
     context = {}
     return render(request, 'home/demo.html', context)
 
 def Price(request):
+    request.session['redirect'] = '/Price'
     context = {}
     return render(request, 'home/price.html', context)
 
 def Contact(request):
+    request.session['redirect'] = '/Contact'
     context = {}
     return render(request, 'home/contact.html', context)
 
 def Pedigree(request):
+    request.session['redirect'] = '/Pedigree'
     context = {}
     return None
 
@@ -96,21 +104,21 @@ def Login(request):
                     return redirect(request.session['redirect'])
 
                 except HTTPError as e:
-                    print('Exception : ' + str(e.args))
+                    print('Exception : ',str(e))
                     return render(request, 'home/login.html', context={'error': 'Wrong Email or Password'})
             else:
                 return render(request, 'home/login.html', context={'error':'Wrong reCAPTCHA'})
 
 
 def Logout(request):
-    session.pop('UserID', None)
-    session.pop('UserName', None)
-    session.pop('idToken', None)
-    session.pop('UserEmail', None)
-    session.pop('UserPhone', None)
-    session.pop('UserAddress', None)
+    request.session['UserID'] = None
+    request.session['UserName'] = None
+    request.session['idToken'] = None
+    request.session['UserEmail'] = None
+    request.session['UserPhone'] = None
+    request.session['UserAddress'] = None
 
-    return render(request, 'home/home.html', context={})
+    return redirect(request.session['redirect'])
 
 def Registration(request):
     try:
@@ -186,4 +194,5 @@ def Registration(request):
     return render(request, 'home/registration.html', context={})
 
 def privacy_policy(request):
+    request.session['redirect'] = '/privacy_policy'
     return None
